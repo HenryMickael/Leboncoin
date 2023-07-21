@@ -10,13 +10,17 @@ function SeConnecter() {
 
   const handleSeDeconnecterClick = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("userId");
     navigate("/");
   };
 
   const token = localStorage.getItem("token");
 
   return (
-    <button onClick={token ? handleSeDeconnecterClick : handleSeConnecterClick}>
+    <button
+      onClick={token ? handleSeDeconnecterClick : handleSeConnecterClick}
+      className="BtnSeConnecter"
+    >
       {token ? "Se déconnecter" : "Se connecter"}
     </button>
   );

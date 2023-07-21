@@ -3,74 +3,55 @@ import React, { useState } from "react";
 function NavigationBar() {
   const [activeSubMenu, setActiveSubMenu] = useState("");
 
-  const handleSubMenuEnter = (subMenu) => {
-    setActiveSubMenu(subMenu);
+  const handleSubMenuToggle = (subMenu) => {
+    setActiveSubMenu(activeSubMenu === subMenu ? "" : subMenu);
   };
 
-  const handleSubMenuLeave = () => {
-    setActiveSubMenu("");
-  };
+  // Définition des éléments du menu et du sous-menu
+  const menuItems = [
+    {
+      label: "Véhicule",
+      subMenuItems: [
+        { label: "Voitures", href: "/voitures" },
+        { label: "Moto", href: "/moto" },
+        { label: "Bateau", href: "/bateau" },
+      ],
+    },
+    {
+      label: "Immobilier",
+      subMenuItems: [
+        { label: "Appartement", href: "/appartement" },
+        { label: "Maison", href: "/maison" },
+        { label: "Terrain", href: "/terrain" },
+      ],
+    },
+    {
+      label: "Mode",
+      subMenuItems: [
+        { label: "Homme", href: "/homme" },
+        { label: "Femme", href: "/femme" },
+        { label: "Enfant", href: "/enfant" },
+      ],
+    },
+  ];
 
   return (
     <nav>
       <ul>
-        <li
-          onMouseEnter={() => handleSubMenuEnter("vehicule")}
-          onMouseLeave={handleSubMenuLeave}
-        >
-          Véhicule
-          {activeSubMenu === "vehicule" && (
-            <ul className="sub-menu">
-              <li>
-                <a href="/voitures">Voitures</a>
-              </li>
-              <li>
-                <a href="/moto">Moto</a>
-              </li>
-              <li>
-                <a href="/bateau">Bateau</a>
-              </li>
-            </ul>
-          )}
-        </li>
-        <li
-          onMouseEnter={() => handleSubMenuEnter("immobilier")}
-          onMouseLeave={handleSubMenuLeave}
-        >
-          Immobilier
-          {activeSubMenu === "immobilier" && (
-            <ul className="sub-menu">
-              <li>
-                <a href="/appartement">Appartement</a>
-              </li>
-              <li>
-                <a href="/maison">Maison</a>
-              </li>
-              <li>
-                <a href="/terrain">Terrain</a>
-              </li>
-            </ul>
-          )}
-        </li>
-        <li
-          onMouseEnter={() => handleSubMenuEnter("mode")}
-          onMouseLeave={handleSubMenuLeave}
-        >
-          Mode
-          {activeSubMenu === "mode" && (
-            <ul className="sub-menu">
-              <li>
-                <a href="/homme">Homme</a>
-              </li>
-              <li>
-                <a href="/femme">Femme</a>
-              </li>
-              <li>
-                <a href="/enfant">Enfant</a>
-              </li>
-            </ul>
-          )}
-        </li>
+        {menuItems.map((menuItem, index) => (
+          <li key={index} onClick={() => handleSubMenuToggle(menuItem.label)}>
+            {menuItem.label}
+            {activeSubMenu === menuItem.label && (
+              <ul className="sub-menu">
+                {menuItem.subMenuItems.map((subMenuItem, index) => (
+                  <li key={index}>
+                    <a href={subMenuItem.href}>{subMenuItem.label}</a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
       </ul>
     </nav>
   );

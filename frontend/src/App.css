@@ -1,1 +1,106 @@
+/* Navbar *********************************************************************/
+.Navbar {
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+/* Main Bar  */
+.MainNavbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.MainNavbar a {
+  text-decoration: none;
+  color: #f7751f;
+  font-size: 24px;
+}
+
+.BtnDepot,
+.BtnSeConnecter {
+  color: whitesmoke;
+  background-color: #f7751f;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.BtnDepot:hover,
+.BtnSeConnecter:hover {
+  background-color: #f9630f;
+}
+.BtnSeConnecter {
+  margin-left: 10px;
+}
+.MainNavbar input {
+  width: 250px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #f9f9f9;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.MainNavbar input:focus {
+  border-color: #f7751f;
+}
+
+.Magnifying-glass {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #f7751f;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Magnifying-glass:hover {
+  background-color: #f9630f;
+}
+/* Sub Navbar  */
+.SubNavbar ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+}
+
+.SubNavbar li {
+  margin: 0 20px;
+  cursor: pointer;
+  color: #333;
+  font-size: 18px;
+}
+
+.SubNavbar li:hover {
+  color: #f00;
+}
+/* Sub-Menu  */
+.sub-menu {
+  display: none;
+  position: absolute;
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* padding: 10px; */
+}
+
+.sub-menu a {
+  text-decoration: none;
+  color: black;
+}
+
+li:hover .sub-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 5px;
+}

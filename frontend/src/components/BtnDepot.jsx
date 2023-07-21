@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const BtnDepot = () => {
-  const [isLoggedIn] = useState(!!localStorage.getItem("token"));
+  const isLoggedIn = !!localStorage.getItem("token");
   const navigate = useNavigate();
-  const redirectPath = isLoggedIn ? "/depot" : "/connexion";
 
   const handleDepotClick = () => {
-    navigate(redirectPath);
+    if (isLoggedIn) {
+      navigate("/depotannonce");
+    } else {
+      navigate("/connexion");
+    }
   };
 
   return (
     <div>
-      <button onClick={handleDepotClick}>
-        {isLoggedIn
-          ? "Déposer votre annonce"
-          : "Se connecter pour déposer une annonce"}
+      <button onClick={handleDepotClick} className="BtnDepot">
+        Déposer votre annonce
       </button>
     </div>
   );

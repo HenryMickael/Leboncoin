@@ -7,16 +7,16 @@ import Seconnecter from "./Seconnecter";
 
 const Navbar = () => {
   return (
-    <div>
-      <div>
-        <Link to="/Acceuil">
+    <div className="Navbar">
+      <div className="MainNavbar">
+        <Link to="/">
           <span>La Bonne Affaire</span>
         </Link>
         <BtnDepot />
         <SearchBar />
         <Seconnecter />
       </div>
-      <div>
+      <div className="SubNavbar">
         <NavigationBar />
       </div>
     </div>

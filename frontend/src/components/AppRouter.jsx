@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Connexion from "../pages/Connexion";
 import Inscription from "../pages/Inscription";
 import Acceuil from "../pages/Acceuil";
-import Depot from "../pages/Depot";
+import DepotAnnonce from "../pages/DepotAnnonce";
 
 const AppRouter = () => {
   return (
@@ -11,7 +11,7 @@ const AppRouter = () => {
       <Route path="/" element={<Acceuil />} />
       <Route path="/connexion" element={<Connexion />} />
       <Route path="/inscription" element={<Inscription />} />
-      <Route path="/depot" element={<Depot />} />
+      <Route path="/depotannonce" element={<DepotAnnonce />} />
     </Routes>
   );
 };

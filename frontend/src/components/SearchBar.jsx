@@ -15,12 +15,12 @@ const SearchBar = ({ onSearch }) => {
     <div>
       <input
         type="text"
-        placeholder="Rechercher..."
+        placeholder="Rechercher ..."
         value={searchTerm}
         onChange={handleInputChange}
       />
-      <button onClick={handleSearch}>
-        <i className="fa fa-search" aria-hidden="true"></i>{" "}
+      <button onClick={handleSearch} className="Magnifying-glass">
+        <i className="fa-solid fa-magnifying-glass" aria-hidden="true"></i>{" "}
       </button>
     </div>
   );
