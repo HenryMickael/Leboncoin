@@ -12,18 +12,15 @@ const convertToWebp = async (req, res, next) => {
       .toFormat("webp")
       .webp({ quality: 60 })
       .toFile(outputFile);
-
     fs.unlinkSync(inputFile);
 
     req.file.path = outputFile;
     req.file.mimetype = "image/webp";
     req.file.filename = req.file.filename.replace(/\.(jpg|jpeg|png)$/, ".webp");
-
-    next();
   } catch (err) {
     console.error("Error while converting image:", err);
-    next(err);
   }
+  next();
 };
 
 module.exports = convertToWebp;

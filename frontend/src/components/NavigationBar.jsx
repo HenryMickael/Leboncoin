@@ -1,55 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 
 function NavigationBar() {
-  const [activeSubMenu, setActiveSubMenu] = useState("");
-
-  const handleSubMenuToggle = (subMenu) => {
-    setActiveSubMenu(activeSubMenu === subMenu ? "" : subMenu);
-  };
-
-  // Définition des éléments du menu et du sous-menu
   const menuItems = [
     {
       label: "Véhicule",
-      subMenuItems: [
-        { label: "Voitures", href: "/voitures" },
-        { label: "Moto", href: "/moto" },
-        { label: "Bateau", href: "/bateau" },
-      ],
+      href: "/vehicule",
     },
     {
       label: "Immobilier",
-      subMenuItems: [
-        { label: "Appartement", href: "/appartement" },
-        { label: "Maison", href: "/maison" },
-        { label: "Terrain", href: "/terrain" },
-      ],
+      href: "/immobilier",
     },
     {
       label: "Mode",
-      subMenuItems: [
-        { label: "Homme", href: "/homme" },
-        { label: "Femme", href: "/femme" },
-        { label: "Enfant", href: "/enfant" },
-      ],
+      href: "/mode",
     },
   ];
 
   return (
     <nav>
-      <ul>
+      <ul className="menu">
         {menuItems.map((menuItem, index) => (
-          <li key={index} onClick={() => handleSubMenuToggle(menuItem.label)}>
-            {menuItem.label}
-            {activeSubMenu === menuItem.label && (
-              <ul className="sub-menu">
-                {menuItem.subMenuItems.map((subMenuItem, index) => (
-                  <li key={index}>
-                    <a href={subMenuItem.href}>{subMenuItem.label}</a>
-                  </li>
-                ))}
-              </ul>
-            )}
+          <li key={index}>
+            <a href={menuItem.href}>{menuItem.label}</a>
           </li>
         ))}
       </ul>

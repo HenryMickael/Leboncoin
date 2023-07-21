@@ -6,6 +6,7 @@ const DepotAnnonceMode = () => {
   const [categorie, setCategorie] = useState("Mode");
   const [taille, setTaille] = useState("");
   const [couleur, setCouleur] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,9 +28,15 @@ const DepotAnnonceMode = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        // Vous pouvez effectuer des actions après avoir reçu la réponse du serveur
-        // Par exemple, vous pouvez rediriger l'utilisateur vers une page de confirmation
-        // en fonction de la réponse du serveur
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setTitre("");
+          setDescription("");
+          setCategorie("Mode");
+          setTaille("");
+          setCouleur("");
+        }, 2000);
       })
       .catch((error) => {
         console.error("Erreur lors de la soumission du formulaire :", error);
@@ -81,6 +88,7 @@ const DepotAnnonceMode = () => {
         />
       </label>
       <button type="submit">Créer l'annonce</button>
+      {isSubmitted && <div>Annonce créée avec succès!</div>}
     </form>
   );
 };

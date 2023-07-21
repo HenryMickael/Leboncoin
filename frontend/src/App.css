@@ -67,40 +67,23 @@
   background-color: #f9630f;
 }
 /* Sub Navbar  */
-.SubNavbar ul {
+/* test  */
+.menu {
+  list-style-type: none;
   display: flex;
-  list-style: none;
-  padding: 0;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.SubNavbar li {
-  margin: 0 20px;
-  cursor: pointer;
-  color: #333;
-  font-size: 18px;
+.menu li {
+  margin-right: 10px;
 }
 
-.SubNavbar li:hover {
-  color: #f00;
-}
-/* Sub-Menu  */
-.sub-menu {
-  display: none;
-  position: absolute;
-  background-color: #f0f0f0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* padding: 10px; */
+.menu li:last-child {
+  margin-right: 0;
 }
 
-.sub-menu a {
+.menu a {
   text-decoration: none;
   color: black;
-}
-
-li:hover .sub-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-top: 5px;
 }

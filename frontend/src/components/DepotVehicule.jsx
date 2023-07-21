@@ -7,6 +7,7 @@ const DepotAnnonceVehicule = () => {
   const [marque, setMarque] = useState("");
   const [modele, setModele] = useState("");
   const [annee, setAnnee] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,9 +30,16 @@ const DepotAnnonceVehicule = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        // Vous pouvez effectuer des actions après avoir reçu la réponse du serveur
-        // Par exemple, vous pouvez rediriger l'utilisateur vers une page de confirmation
-        // en fonction de la réponse du serveur
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setTitre("");
+          setDescription("");
+          setCategorie("Vehicule");
+          setMarque("");
+          setModele("");
+          setAnnee("");
+        }, 2000);
       })
       .catch((error) => {
         console.error("Erreur lors de la soumission du formulaire :", error);
@@ -91,6 +99,7 @@ const DepotAnnonceVehicule = () => {
         />
       </label>
       <button type="submit">Créer l'annonce</button>
+      {isSubmitted && <div>Annonce créée avec succès!</div>}
     </form>
   );
 };
