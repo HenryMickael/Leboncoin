@@ -1,20 +1,21 @@
 /* Navbar *********************************************************************/
 .Navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   background-color: #f0f0f0;
   padding: 10px;
 }
-/* Main Bar  */
-.MainNavbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.MainNavbar a {
+.Logo {
   text-decoration: none;
   color: #f7751f;
   font-size: 24px;
+}
+
+.NavbarActions {
+  display: flex;
+  align-items: center;
 }
 
 .BtnDepot,
@@ -26,15 +27,15 @@
   padding: 8px 20px;
   font-size: 16px;
   cursor: pointer;
+  margin-left: 10px;
 }
+
 .BtnDepot:hover,
 .BtnSeConnecter:hover {
   background-color: #f9630f;
 }
-.BtnSeConnecter {
-  margin-left: 10px;
-}
-.MainNavbar input {
+
+.Navbar input {
   width: 250px;
   padding: 10px;
   font-size: 16px;
@@ -45,7 +46,7 @@
   transition: border-color 0.3s ease;
 }
 
-.MainNavbar input:focus {
+.Navbar input:focus {
   border-color: #f7751f;
 }
 
@@ -66,24 +67,110 @@
 .Magnifying-glass:hover {
   background-color: #f9630f;
 }
-/* Sub Navbar  */
-/* test  */
-.menu {
-  list-style-type: none;
+
+/* TEST CARD ******************************************************************** */
+.annonce-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.annonce-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.annonce-card p {
+  margin-bottom: 4px;
+}
+/* TEST FORMULAIRE DEPOT**************************************************************
+ */
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+}
+
+.form-label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form-select,
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+.submit-button {
+  color: whitesmoke;
+  background-color: #f7751f;
+  border: none;
+  border-radius: 5px;
+  padding: 14px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #f9630f;
+}
+
+.success-message {
+  color: #2ecc71;
+  margin-top: 20px;
+  font-size: 18px;
+}
+/* TEST ACCEUIL******************************************************************
+ */
+/* Ajouter ce style CSS à votre fichier de style */
+.annonce-cards-container {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  gap: 20px; /* Espace entre les cards */
 }
 
-.menu li {
-  margin-right: 10px;
+.annonce-card {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  width: 300px;
 }
 
-.menu li:last-child {
-  margin-right: 0;
+.annonce-card h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
-.menu a {
-  text-decoration: none;
-  color: black;
+.annonce-card p {
+  margin: 5px 0;
+}
+
+/* Style supplémentaire pour améliorer l'apparence */
+h1,
+h2 {
+  color: #f7751f;
+}
+
+p {
+  color: #555;
 }

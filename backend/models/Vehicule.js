@@ -7,6 +7,13 @@ const vehiculeSchema = new mongoose.Schema({
   marque: { type: String, required: true },
   modele: { type: String, required: true },
   annee: { type: Number, required: true },
+  boiteDeVitesse: { type: String, required: true },
+  carburant: { type: String, required: true },
+  couleur: { type: String, required: true },
+  prixEnEuro: { type: Number, required: true },
+  emailDeContact: { type: String },
+  numeroDeTelDeContact: { type: String },
+  dateCreation: { type: Date, default: Date.now },
 });
 
 const Vehicule = mongoose.model("Vehicule", vehiculeSchema);

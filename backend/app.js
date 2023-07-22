@@ -6,8 +6,6 @@ const cors = require("cors");
 
 const userRoutes = require("./routes/user");
 const vehiculeRoutes = require("./routes/vehicule");
-const immobilierRoutes = require("./routes/immobilier");
-const modeRoutes = require("./routes/mode");
 
 mongoose
   .connect(process.env.MONGODB_URI, {
@@ -37,8 +35,6 @@ app.use((req, res, next) => {
 
 app.use("/api/auth", userRoutes);
 app.use("/api", vehiculeRoutes);
-app.use("/api", immobilierRoutes);
-app.use("/api", modeRoutes);
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 
