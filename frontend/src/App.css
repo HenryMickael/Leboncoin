@@ -1,4 +1,4 @@
-/* Navbar *********************************************************************/
+/* Navbar */
 .Navbar {
   display: flex;
   flex-direction: row;
@@ -7,6 +7,7 @@
   background-color: #f0f0f0;
   padding: 10px;
 }
+
 .Logo {
   text-decoration: none;
   color: #f7751f;
@@ -68,29 +69,215 @@
   background-color: #f9630f;
 }
 
-/* TEST CARD ******************************************************************** */
+/* Accueil */
+.annonce-cards-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+}
+
 .annonce-card {
+  background-color: #f0f0f0;
   border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  width: 350px;
+  position: relative;
+}
+
+.annonce-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.annonce-card .overlay-text,
+.annonce-card .overlay-text p {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-decoration: none;
+}
+.Acceuil {
+  background-color: white;
+  height: 100vh;
+}
+.Acceuil h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+.Acceuil h2 {
+  text-align: center;
+  padding: 30px;
+}
+.Acceuil .presentation {
+  font-size: 1.5em;
+  margin: 10px 5px;
+}
+.options-container {
+  text-align: center;
+}
+.options-container a {
+  text-decoration: none;
+  font-size: 1.5em;
+  color: #f7751f;
+}
+.options-container h2 {
+  font-size: 1.5em;
+}
+.option-container-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+  padding-top: 1em;
+}
+
+/* AnnonceVehicule */
+.annonces-vehicule-container {
+  padding: 20px;
+  background-color: white;
+}
+
+.annonces-vehicule-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.annonce-card-All {
+  width: calc(85% - 20px);
+  margin-bottom: 30px;
+  height: 250px;
+  /* background-color: #f1f1f1; */
   border-radius: 8px;
-  padding: 16px;
-  margin: 8px;
-  background-color: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-.annonce-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
+.annonce-card-All:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.annonce-card p {
-  margin-bottom: 4px;
+.annonce-card-All img {
+  height: 100%;
+  width: 33%;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 20px;
 }
-/* TEST FORMULAIRE DEPOT**************************************************************
- */
+
+/* AnnonceVehicule */
+.annonces-vehicule-container {
+  padding: 20px;
+}
+
+.annonces-vehicule-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.annonce-card-All {
+  width: calc(85% - 20px);
+  margin-bottom: 30px;
+  height: 250px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.annonce-card-All:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.annonce-card-All img {
+  height: 100%;
+  width: 33%;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 20px;
+}
+
+.annonce-card-info h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.annonce-card-info p {
+  margin-bottom: 5px;
+}
+
+/* AnnonceDetail */
+
+.annonce-detail-container {
+  padding: 20px;
+  background-color: white;
+}
+
+.annonce-detail-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.annonce-detail-container img {
+  display: block;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.annonce-detail-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.annonce-detail-info p {
+  flex: 0 0 50%;
+  margin: 10px 0;
+}
+
+.retour-button {
+  color: whitesmoke;
+  background-color: #f7751f;
+  border: none;
+  border-radius: 5px;
+  padding: 14px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.retour-button:hover {
+  background-color: #f9630f;
+}
+/* Depotannonce */
+.Formulaire {
+  background-color: white;
+  height: auto;
+}
 .form-container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 40px;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -140,37 +327,186 @@
   margin-top: 20px;
   font-size: 18px;
 }
-/* TEST ACCEUIL******************************************************************
- */
-/* Ajouter ce style CSS à votre fichier de style */
-.annonce-cards-container {
-  display: flex;
-  gap: 20px; /* Espace entre les cards */
-}
-
-.annonce-card {
+/* AnnonceVehicule FILTRE */
+.filters-container {
   background-color: #f0f0f0;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.filters-container label {
+  font-weight: bold;
+}
+
+.filters-container input,
+.filters-container select {
+  width: 150px;
+  padding: 8px;
+  font-size: 14px;
   border: 1px solid #ccc;
-  padding: 10px;
   border-radius: 5px;
-  width: 300px;
+  background-color: #f9f9f9;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
-.annonce-card h3 {
+.filters-container input:focus,
+.filters-container select:focus {
+  border-color: #f7751f;
+}
+/* Connexion */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container label {
   font-size: 18px;
-  margin-bottom: 5px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.annonce-card p {
-  margin: 5px 0;
+.container input[type="email"],
+.container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  outline: none;
+  margin-bottom: 20px;
 }
 
-/* Style supplémentaire pour améliorer l'apparence */
-h1,
-h2 {
+.container input[type="email"]:focus,
+.container input[type="password"]:focus {
+  border-color: #f7751f;
+}
+
+.container .error {
+  color: red;
+  margin-top: 5px;
+}
+
+.container button {
+  color: whitesmoke;
+  background-color: #f7751f;
+  border: none;
+  border-radius: 5px;
+  padding: 14px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.container button:hover {
+  background-color: #f9630f;
+}
+
+.container p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.container a {
+  text-decoration: none;
   color: #f7751f;
+  font-weight: bold;
 }
 
-p {
-  color: #555;
+.container a:hover {
+  text-decoration: underline;
+}
+/* Inscription */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.container .success {
+  text-align: center;
+  color: #2ecc71;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.container input[type="email"],
+.container input[type="password"],
+.container input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.container input[type="email"]:focus,
+.container input[type="password"]:focus,
+.container input[type="text"]:focus {
+  border-color: #f7751f;
+}
+
+.container .error {
+  color: red;
+  margin-top: 5px;
+}
+
+.container button {
+  color: whitesmoke;
+  background-color: #f7751f;
+  border: none;
+  border-radius: 5px;
+  padding: 14px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.container button:hover {
+  background-color: #f9630f;
 }

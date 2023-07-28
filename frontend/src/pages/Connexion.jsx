@@ -64,42 +64,47 @@ const Connexion = () => {
   return (
     <div>
       <Navbar />
-      <h1>Connexion</h1>
-
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={validateEmail}
-            required
-          />
-          {emailError && <div className="error">{emailError}</div>}
-        </div>
-        <div>
-          <label htmlFor="password">Mot de passe:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            onBlur={validatePassword}
-            required
-          />
-          {passwordError && <div className="error">{passwordError}</div>}
-        </div>
-        <button type="submit" disabled={isSubmitting}>
-          Se connecter
-        </button>
-        {errorMessage && <div className="error">{errorMessage}</div>}
-      </form>
-      <p>
-        Pas encore inscrit ?{" "}
-        <a href="/Inscription">Pour vous inscrire, cliquez ici</a>
-      </p>
+      <div className="container">
+        <h1>Connexion</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onBlur={validateEmail}
+              required
+            />
+            {emailError && <div className="error">{emailError}</div>}
+          </div>
+          <div>
+            <label htmlFor="password">Mot de passe:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onBlur={validatePassword}
+              required
+            />
+            {passwordError && <div className="error">{passwordError}</div>}
+          </div>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="BtnSeConnecter"
+          >
+            Se connecter
+          </button>
+          {errorMessage && <div className="error">{errorMessage}</div>}
+        </form>
+        <p>
+          Pas encore inscrit ?{" "}
+          <a href="/Inscription">Pour vous inscrire, cliquez ici</a>
+        </p>
+      </div>
     </div>
   );
 };

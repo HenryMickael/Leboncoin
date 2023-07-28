@@ -64,7 +64,6 @@ const Inscription = () => {
       .then((response) => {
         setIsSubmitting(false);
         if (response.ok) {
-          setIsAccountCreated(true);
           return response.json();
         } else {
           throw new Error("Erreur lors de l'inscription");
@@ -74,8 +73,10 @@ const Inscription = () => {
         if (data.token && data.userId) {
           localStorage.setItem("token", data.token);
           localStorage.setItem("userId", data.userId);
+          setIsAccountCreated(true);
+        } else {
+          throw new Error("Erreur lors de l'inscription");
         }
-        window.location.href = "/connexion";
       })
       .catch((error) => {
         setIsSubmitting(false);
@@ -86,62 +87,64 @@ const Inscription = () => {
   return (
     <div>
       <Navbar />
-      <h1>Inscription</h1>
-      {isAccountCreated && (
-        <div className="success">Compte créé avec succès !</div>
-      )}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          {emailError && <div className="error">{emailError}</div>}
-        </div>
-        <div>
-          <label htmlFor="password">Mot de passe:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          {passwordError && <div className="error">{passwordError}</div>}
-        </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirmer le mot de passe:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-          {confirmPasswordError && (
-            <div className="error">{confirmPasswordError}</div>
-          )}
-        </div>
-        <div>
-          <label htmlFor="username">Nom d'utilisateur:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-          {usernameError && <div className="error">{usernameError}</div>}
-        </div>
-        <button type="submit" disabled={isSubmitting}>
-          S'inscrire
-        </button>
-        {errorMessage && <div className="error">{errorMessage}</div>}
-      </form>
+      <div className="container">
+        <h1>Inscription</h1>
+        {isAccountCreated && (
+          <div className="success">Compte créé avec succès !</div>
+        )}
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            {emailError && <div className="error">{emailError}</div>}
+          </div>
+          <div>
+            <label htmlFor="password">Mot de passe:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            {passwordError && <div className="error">{passwordError}</div>}
+          </div>
+          <div>
+            <label htmlFor="confirmPassword">Confirmer le mot de passe:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+            {confirmPasswordError && (
+              <div className="error">{confirmPasswordError}</div>
+            )}
+          </div>
+          <div>
+            <label htmlFor="username">Nom d'utilisateur:</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            {usernameError && <div className="error">{usernameError}</div>}
+          </div>
+          <button type="submit" disabled={isSubmitting}>
+            S'inscrire
+          </button>
+          {errorMessage && <div className="error">{errorMessage}</div>}
+        </form>
+      </div>
     </div>
   );
 };

@@ -7,25 +7,24 @@ const DepotAnnonceVehicule = () => {
   const [marque, setMarque] = useState("");
   const [modele, setModele] = useState("");
   const [annee, setAnnee] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = {
-      titre,
-      description,
-      categorie,
-      marque,
-      modele,
-      annee,
-    };
+
+    const formData = new FormData();
+    formData.append("titre", titre);
+    formData.append("description", description);
+    formData.append("categorie", categorie);
+    formData.append("marque", marque);
+    formData.append("modele", modele);
+    formData.append("annee", annee);
+    formData.append("image", selectedFile);
 
     fetch("http://localhost:4000/api/depotVehicule", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+      body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
@@ -39,11 +38,17 @@ const DepotAnnonceVehicule = () => {
           setMarque("");
           setModele("");
           setAnnee("");
+          setSelectedFile(null);
         }, 2000);
       })
       .catch((error) => {
         console.error("Erreur lors de la soumission du formulaire :", error);
       });
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedFile(file);
   };
 
   return (
@@ -97,6 +102,10 @@ const DepotAnnonceVehicule = () => {
           value={annee}
           onChange={(e) => setAnnee(e.target.value)}
         />
+      </label>
+      <label>
+        image :
+        <input type="file" accept="image/*" onChange={handleFileChange} />
       </label>
       <button type="submit">Créer l'annonce</button>
       {isSubmitted && <div>Annonce créée avec succès!</div>}

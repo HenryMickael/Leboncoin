@@ -14,31 +14,34 @@ const DepotAnnonceVehicule = () => {
   const [prixEnEuro, setPrixEnEuro] = useState("");
   const [emailDeContact, setEmailDeContact] = useState("");
   const [numeroDeTelDeContact, setNumeroDeTelDeContact] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFileName, setSelectedFileName] = useState(""); // eslint-disable-line no-unused-vars
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = {
-      titre,
-      description,
-      categorie,
-      marque,
-      modele,
-      annee,
-      boiteDeVitesse,
-      carburant,
-      couleur,
-      prixEnEuro,
-      emailDeContact,
-      numeroDeTelDeContact,
-    };
+
+    const userId = localStorage.getItem("userId");
+
+    const formData = new FormData();
+    formData.append("titre", titre);
+    formData.append("description", description);
+    formData.append("categorie", categorie);
+    formData.append("marque", marque);
+    formData.append("modele", modele);
+    formData.append("annee", annee);
+    formData.append("boiteDeVitesse", boiteDeVitesse);
+    formData.append("carburant", carburant);
+    formData.append("couleur", couleur);
+    formData.append("prixEnEuro", prixEnEuro);
+    formData.append("emailDeContact", emailDeContact);
+    formData.append("numeroDeTelDeContact", numeroDeTelDeContact);
+    formData.append("image", selectedFile);
+    formData.append("userId", userId);
 
     fetch("http://localhost:4000/api/depotVehicule", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+      body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
@@ -58,6 +61,12 @@ const DepotAnnonceVehicule = () => {
           setPrixEnEuro("");
           setEmailDeContact("");
           setNumeroDeTelDeContact("");
+          setSelectedFile(null);
+          setSelectedFileName("");
+          const fileInput = document.getElementById("fileInput");
+          if (fileInput) {
+            fileInput.value = null;
+          }
         }, 2000);
       })
       .catch((error) => {
@@ -65,8 +74,14 @@ const DepotAnnonceVehicule = () => {
       });
   };
 
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedFile(file);
+    setSelectedFileName(file.name);
+  };
+
   return (
-    <div>
+    <div className="Formulaire">
       <Navbar />
       <div className="form-container">
         <form onSubmit={handleSubmit}>
@@ -99,7 +114,6 @@ const DepotAnnonceVehicule = () => {
               className="form-textarea"
             />
           </label>
-
           <label className="form-label">
             Marque :
             <input
@@ -136,7 +150,7 @@ const DepotAnnonceVehicule = () => {
             >
               <option value="">Sélectionnez</option>
               <option value="Automatique">Automatique</option>
-              <option value="Manuel">Manuel</option>
+              <option value="Manuelle">Manuelle</option>
             </select>
           </label>
           <label className="form-label">
@@ -186,6 +200,16 @@ const DepotAnnonceVehicule = () => {
               type="text"
               value={numeroDeTelDeContact}
               onChange={(e) => setNumeroDeTelDeContact(e.target.value)}
+              className="form-input"
+            />
+          </label>
+          <label className="form-label">
+            Image :
+            <input
+              id="fileInput"
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
               className="form-input"
             />
           </label>
