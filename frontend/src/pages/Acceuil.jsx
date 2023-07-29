@@ -2,11 +2,22 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import { format } from "date-fns";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Accueil = () => {
   const [allAnnonces, setAllAnnonces] = useState([]);
   const [lastThreeAnnonces, setLastThreeAnnonces] = useState([]);
+
+  const isLoggedIn = !!localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  const handleVendreClick = () => {
+    if (isLoggedIn) {
+      navigate("/depotAnnonce");
+    } else {
+      navigate("/connexion");
+    }
+  };
 
   useEffect(() => {
     fetchAnnonces();
@@ -56,7 +67,7 @@ const Accueil = () => {
               </a>
             </li>
             <li>
-              <a href="/depotAnnonce" className="option-link">
+              <a href="#0" className="option-link" onClick={handleVendreClick}>
                 Vendre votre véhicule
               </a>
             </li>

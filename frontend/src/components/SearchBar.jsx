@@ -12,7 +12,7 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <div className="searchBar">
       <input
         type="text"
         placeholder="Rechercher ..."

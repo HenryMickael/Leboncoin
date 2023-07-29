@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BtnDepot from "./BtnDepot";
-import SearchBar from "./SearchBar";
+import BtnVoirAnnonce from "./BtnVoirAnnonce";
+
 import Seconnecter from "./Seconnecter";
 
 const Navbar = () => {
@@ -11,7 +12,7 @@ const Navbar = () => {
         <span>La Bonne Affaire</span>
       </Link>
       <BtnDepot />
-      <SearchBar />
+      <BtnVoirAnnonce />
       <Seconnecter />
     </div>
   );

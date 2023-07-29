@@ -20,7 +20,8 @@
 }
 
 .BtnDepot,
-.BtnSeConnecter {
+.BtnSeConnecter,
+.BtnVoirAnnonce {
   color: whitesmoke;
   background-color: #f7751f;
   border: none;
@@ -33,39 +34,6 @@
 
 .BtnDepot:hover,
 .BtnSeConnecter:hover {
-  background-color: #f9630f;
-}
-
-.Navbar input {
-  width: 250px;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  background-color: #f9f9f9;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.Navbar input:focus {
-  border-color: #f7751f;
-}
-
-.Magnifying-glass {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  background-color: #f7751f;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.Magnifying-glass:hover {
   background-color: #f9630f;
 }
 
@@ -330,7 +298,7 @@
 /* AnnonceVehicule FILTRE */
 .filters-container {
   background-color: #f0f0f0;
-  padding: 20px;
+  padding: 7px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -357,6 +325,45 @@
 .filters-container input:focus,
 .filters-container select:focus {
   border-color: #f7751f;
+}
+/* Annonce vehicule serach  */
+.searchBar {
+  padding: 7px;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+}
+.searchBar input {
+  width: 500px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #f9f9f9;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.searchBar input:focus {
+  border-color: #f7751f;
+}
+
+.Magnifying-glass {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #f7751f;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Magnifying-glass:hover {
+  background-color: #f9630f;
 }
 /* Connexion */
 .container {

@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 const vehiculeSchema = new mongoose.Schema({
   userId: { type: String },
-  titre: { type: String, required: true },
-  description: { type: String, required: true },
-  categorie: { type: String, required: true },
+  titre: { type: String },
+  description: { type: String },
+  categorie: { type: String },
   marque: { type: String },
   modele: { type: String },
   annee: { type: Number },

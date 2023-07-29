@@ -213,6 +213,15 @@ const DepotAnnonceVehicule = () => {
               className="form-input"
             />
           </label>
+          {selectedFile && (
+            <div className="image-preview">
+              <img
+                src={URL.createObjectURL(selectedFile)}
+                alt="Prévisualisation de l'annonce"
+                style={{ maxWidth: "300px", maxHeight: "300px" }}
+              />
+            </div>
+          )}
           <button type="submit" className="submit-button">
             Créer l'annonce
           </button>
