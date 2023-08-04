@@ -54,7 +54,7 @@ const Inscription = () => {
       username: username,
     };
 
-    fetch("http://localhost:4000/api/auth/signup", {
+    fetch("https://leboncoin-xi.vercel.app/api/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

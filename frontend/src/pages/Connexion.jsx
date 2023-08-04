@@ -21,7 +21,7 @@ const Connexion = () => {
       password: password,
     };
 
-    fetch("http://localhost:4000/api/auth/login", {
+    fetch("https://leboncoin-xi.vercel.app/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

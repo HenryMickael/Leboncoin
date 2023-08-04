@@ -22,7 +22,7 @@ const DepotAnnonceVehicule = () => {
     formData.append("annee", annee);
     formData.append("image", selectedFile);
 
-    fetch("http://localhost:4000/api/depotVehicule", {
+    fetch("https://leboncoin-xi.vercel.app/api/depotVehicule", {
       method: "POST",
       body: formData,
     })

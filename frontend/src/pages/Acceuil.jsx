@@ -26,7 +26,7 @@ const Accueil = () => {
   const fetchAnnonces = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/depotVehicule"
+        "https://leboncoin-xi.vercel.app/api/depotVehicule"
       );
       setAllAnnonces(response.data);
     } catch (error) {
