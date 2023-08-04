@@ -20,6 +20,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use(express.static("../frontend/build"));
+
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -31,6 +33,9 @@ app.use((req, res, next) => {
     "GET, POST, PUT, DELETE, PATCH, OPTIONS"
   );
   next();
+});
+app.get("/*", (_, res) => {
+  res.sendFile(path.join(_dirname, "../frontend/build/index.html"));
 });
 
 app.use("/api/auth", userRoutes);
