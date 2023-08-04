@@ -34,9 +34,9 @@ app.use((req, res, next) => {
   );
   next();
 });
-app.get("/*", (_, res) => {
-  res.sendFile(path.join(_dirname, "../frontend/build/index.html"));
-});
+// app.get("/*", (_, res) => {
+//   res.sendFile(path.join(_dirname, "../frontend/build/index.html"));
+// });
 
 app.use("/api/auth", userRoutes);
 app.use("/api", vehiculeRoutes);
